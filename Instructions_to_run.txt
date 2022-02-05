@@ -1,0 +1,5 @@
+Run in the root directory of the project the following 
+commands simultaneously:
+
+1. celery -A video_downloader worker --loglevel=info --pool=eventlet
+2. py .\manage.py runserver

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block body %}
+    
+    <div class="block-content">
+        <h1>How Download?</h1>
+        <div class="img-and-text">
+            <img src="{% static 'img/video files.png' %}" alt="video-files">
+            <div class="text">
+                <h2>Instructions</h2>
+                <ol>
+                    <!-- <li>Search by name or directly paste the link of video you want to convert</li> -->
+                    <li>Paste the link of the YouTube video you want to download.</li>
+                    <li>Click "Search" button to begin search process.</li>
+                    <li>Select the video/audio format you want to download, then click "Download" button.</li>
+                    <li>Wait for the download to complete.</li>
+                </ol>
+            </div>
+        </div>
+        <div class="img-and-text">
+            <div class="text">
+                <h2>Where is my video?</h2>
+                <p>Once your download is complete you will be able to find your video in a folder inside your download directory with the name "VideoDownloader".</p>
+                <p>For example: <span class="directory">Downloads/VideoDownloader/My_video.mp4</span></p>
+            </div>
+            <img src="{% static 'img/my files.png' %}" alt="video-files">
+        </div>
+    </div>
+
+{% endblock body %}
+    

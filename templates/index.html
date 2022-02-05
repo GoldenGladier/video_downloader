@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block body %}
+
+  <div class="block-content">
+    <h1>Download YouTube video and audio online.</h1>
+
+    <!-- Search form -->
+    <form class="form-inline d-flex justify-content-center md-form form-sm mt-0" method = "POST">{% csrf_token %}
+      <i class="fas fa-search icon-search" aria-hidden="true"></i>
+      <input class="form-control form-control-sm ml-3 w-75" type="url" placeholder="Search or paste URL here..." aria-label="Search" name = "link" id="Search">
+      <button type = "submit" class = "btn btn-outline-success"> Search </button> 
+    </form>
+  </div>
+
+  {% if all_streams %}
+  <!-- Video Preview -->
+<div class="container block-all">
+  <div>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{video.bigthumb}}" alt="miniature - {{video.title}}">
+    <div class="card-body">
+      <h5 class="card-title">{{video.title}}</h5> 
+      <!-- Podemos limitar el no. de caracteres de salida con |slice:":35" -->
+      <div class="dropdown-divider"></div>
+      <h6 class="card-subtitle mb-2 text-muted">{{video.author|slice:":25"}}</h6>
+      <!-- <a href="#" class="btn btn-primary">Download best quality</a> -->
+    </div>
+  </div>
+</div>
+  <!-- Downloads menu -->
+  <div class="block-content">
+    <div class="container">
+      <div class="row purple-block">
+        <div class="col-sm-3 tab-control md-col-active" onclick="tabChange('#table-1', '#tab-control-1')" id="tab-control-1">
+          <i class="fas fa-film"></i> 
+          Video
+        </div>
+        <div class="col-sm-3 tab-control" onclick="tabChange('#table-2', '#tab-control-2')" id="tab-control-2">
+          <i class="fas fa-music"></i> 
+          Audio
+        </div>
+        <!-- <div class="col-sm-3 tab-control" onclick="tabChange('#table-3', '#tab-control-3')" id="tab-control-3">
+          <i class="fas fa-closed-captioning"></i>
+          Subtitles
+        </div> -->
+      </div>
+      
+      <!-- table #1 - Video -->
+        <div class="row white-block">   
+          <div class="table-responsive">     
+            
+            <table class="table" id="table-1">
+              <thead class="thead-light">
+                <tr>
+                  <th scope="col">Resolution</th>
+                  <th scope="col">Size</th>
+                  <th scope="col">Extension</th>
+                  <th scope="col">Download</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                {% for s in streams %}
+                  <tr>
+                    <td>{{s.resolution}}</td>
+                    <td class="td-size">{{s.get_filesize}}</td> 
+                    <td>{{s.extension}}</td>                   
+                    <td>
+                      <!-- Button trigger modal -->
+                      <a href="#" class="btn btn-success" onClick="DownloadVideoByItag({{s.itag}}, '{{video.videoid}}')" data-toggle="modal" data-target="#ModalCenter-{{s.itag}}" id="btn-download-{{s.itag}}">
+                      <i class="fas fa-arrow-alt-circle-down"></i> Download</a>
+
+                      <a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter" id="btn-info-{{s.itag}}">
+                        <i class="fas fa-eye"></i> See progress</a>
+                    </td>
+                  </tr>   
+                {% endfor %}
+                         
+              </tbody>
+            </table>
+
+              <!-- table #2 - Audio -->    
+              <table class="table" id="table-2">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Size</th>
+                    <th scope="col">Extension</th>
+                    <th scope="col">Download</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  {% for audio in audios %}
+                    <tr>
+                      <td class="td-size">{{audio.get_filesize}}</td> 
+                      <td>{{audio.extension}}</td>                   
+                      <td> 
+                        <!-- Button trigger modal -->
+                        <a href="#" class="btn btn-success" onClick="DownloadVideoByItag({{audio.itag}}, '{{video.videoid}}')" data-toggle="modal" data-target="#ModalCenter" id="btn-download-{{audio.itag}}">
+                          <i class="fas fa-arrow-alt-circle-down"></i> Download
+                        </a>
+    
+                        <a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter" id="btn-info-{{audio.itag}}">
+                          <i class="fas fa-eye"></i> See progress
+                        </a>
+                        <!-- Progress bar -->
+                        <div class="progress" style="height: 2px;">
+                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" 
+                                aria-valuemin="0" aria-valuemax="100">&nbsp;</div>
+                        </div>
+                        
+                      </td>
+                    </tr>   
+                  {% endfor %}                         
+                </tbody>
+              </table> 
+
+
+          </div>
+        </div>
+    </div>
+  </div>
+</div>                                               
+
+<!-- Modal -->
+<div class="modal fade" id="ModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Downloading...</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <!-- Progress bar -->
+        <div class="progress" style="height: 2px;">
+          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">&nbsp;</div>
+        </div>
+        <div class="progress-bar-message">
+          Waiting for the download to start...
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Okey</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endif %} 
+    
+
+{% endblock body %}
+  
