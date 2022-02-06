@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Fuggles&display=swap');
+/* Modo de uso
+font-family: 'Dancing Script', cursive;
+font-family: 'Fuggles', cursive; 
+*/
+
+
 .bg-dark{
     background-color: #5e3994 !important;
     background: #5e3994;
@@ -17,8 +24,10 @@
 }
 .block-content{
     width: 70%;
+    min-height: calc(100vh - 110px - 56px);
     margin: auto;
-    margin-bottom: 30px;
+    padding: 2rem 0;    
+    /* margin-bottom: 30px; */
     /* background: silver; */
     position: relative;
 }
@@ -28,7 +37,8 @@
 h1{
     font-family: 'Abel', sans-serif;
     text-align: center;
-    margin: 35px 0;
+    margin: 0;
+    margin-bottom: 35px;
 }
 
 .icon-search{
@@ -48,6 +58,10 @@ h1{
     box-shadow: none;
     -moz-box-shadow: none;
     -webkit-box-shadow: none;
+}
+
+.form-search{
+    padding-bottom: 2rem;
 }
 
 .btn-outline-success{
@@ -214,7 +228,7 @@ td{
         margin-bottom: 0;
     }
     #Search{
-        width: 75% !important;
+        width: 90% !important;
     }
     .block-all{
         width: 100%;
@@ -222,7 +236,8 @@ td{
     }
     .card{
         margin: auto;
-        margin-bottom: 10px;
+        margin-bottom: 2rem;
+        width: 100% !important;
     }
     .block-content{
         clear: both;
@@ -239,4 +254,34 @@ td{
         width: 90%;
         margin: auto;
     }
+
+    .container{
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+}
+
+body{
+    position: relative;
+}
+/* Footer */
+footer{
+    background: #5e3994;
+    color: azure;
+    /* position: absolute;
+    bottom: 0;
+    width: 100%; */
+}
+.footer-copyright{
+    font-family: 'Abel', sans-serif;
+    font-size: 14pt;    
+}
+.footer-copyright p{
+    margin: 0;  
+}
+.footer-copyright p span{
+    /* font-family: 'Dancing Script', cursive; */
+    font-family: 'Fuggles', cursive; 
+    font-size: 25pt;
+    display: inline-block;
 }
