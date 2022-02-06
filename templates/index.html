@@ -117,6 +117,15 @@
                         <a href="#" class="btn btn-info" data-toggle="modal" data-target="#ModalCenter" id="btn-info-{{audio.itag}}">
                           <i class="fas fa-eye"></i> See progress
                         </a>
+
+                        <!-- Progress bar -->
+                        <div class="progress-bar-message" id="progress-message-{{audio.itag}}">
+                          Waiting for the download to start...
+                        </div>
+                        <div class="progress" style="height: 2px;" id="progress-itag-{{audio.itag}}">
+                          <div class="progress-bar" role="progressbar" style="width: 0%;" aria-valuenow="0" 
+                                aria-valuemin="0" aria-valuemax="100" id="progress-bar-itag-{{audio.itag}}">&nbsp;</div>
+                        </div>                        
                         
                       </td>
                     </tr>   
