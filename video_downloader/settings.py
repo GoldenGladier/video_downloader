@@ -27,10 +27,7 @@ SECRET_KEY = 'django-insecure-6iz=i7l!$ig*r1r(rt40cllggy9x)4e^zqc##ctv2__$-((hir
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'http://the-yogify.herokuapp.com/',
-    'https://the-yogify.herokuapp.com/',
-    'the-yogify.herokuapp.com',
-    'the-yogify.herokuapp.com/',    
+    'polar-everglades-04001.herokuapp.com',  
 ]
 
 
