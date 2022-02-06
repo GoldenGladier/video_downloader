@@ -2,8 +2,8 @@ from video_downloader.celery import app
 from celery import shared_task
 from celery_progress.backend import ProgressRecorder
 import os.path
-# import pafy
-import apafy as pafy
+import pafy
+# import apafy as pafy
 
 # Default callback function
 def mycb(total, recvd, ratio, rate, eta, progress_recorder):
