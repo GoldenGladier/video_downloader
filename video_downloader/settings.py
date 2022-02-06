@@ -27,6 +27,7 @@ SECRET_KEY = 'django-insecure-6iz=i7l!$ig*r1r(rt40cllggy9x)4e^zqc##ctv2__$-((hir
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1',
     'polar-everglades-04001.herokuapp.com',  
 ]
 

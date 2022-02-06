@@ -2,7 +2,8 @@ from django.shortcuts import render
 from downloader.tasks import download_video
 from django.http import JsonResponse
 
-import pafy
+# import pafy
+import apafy as pafy
 # Create your views here.
 
 def index(request):
