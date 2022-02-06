@@ -8,7 +8,9 @@ import pafy
 def index(request):
     if request.method == 'POST':
         url = request.POST.get('link')
-        video = pafy.new(url)
+        ydl_opts = {"--no-check-certificate": True}
+        # video = pafy.new(url, ydl_opts)        
+        video = pafy.new(url)  
         formatos = video.streams
         audios = video.audiostreams
         all_stream = video.allstreams

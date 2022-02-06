@@ -1,0 +1,242 @@
+.bg-dark{
+    background-color: #5e3994 !important;
+    background: #5e3994;
+}
+.navbar-brand, .nav-link{
+    color: #fff !important;
+}
+
+.block-all{
+    width: 75%;
+    margin: auto;
+    /* background: coral; */
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+}
+.block-content{
+    width: 70%;
+    margin: auto;
+    margin-bottom: 30px;
+    /* background: silver; */
+    position: relative;
+}
+
+/* SEARCH Section */
+
+h1{
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+    margin: 35px 0;
+}
+
+.icon-search{
+    color: #5e3994;
+}
+#Search{ /*input search*/
+    width: 60% !important;
+    margin: 0 5px;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 2px solid #5e3994;
+}
+
+#Search:focus {
+    outline:none !important;
+    outline-width: 0 !important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.btn-outline-success{
+    margin: 5px;
+    border-color: #5e3994;
+    color: #5e3994;
+}
+.btn-outline-success:hover{
+    background: #5e3994;
+    border-color: #5e3994;
+}
+
+.btn-outline-success.focus, .btn-outline-success:focus {
+    box-shadow: 0 0 0 0.2rem rgba(94, 57, 148, 0.5) !important;
+}
+.btn-outline-success:active{
+    background: #5e3994 !important;
+    border-color: #5e3994 !important;
+}
+
+/* Preview video section */
+
+.card{
+    box-shadow: 0 3px 10px #0000005e;
+    margin-right: 20px;
+    height: auto !important;
+}
+.card-title, .card-subtitle, .card-text{
+    font-family: 'Abel', sans-serif;
+    text-align: center;
+}
+
+/* Downloads section */
+
+.purple-block{
+    background: #5e3994;
+    box-shadow: 0 4px 10px #5e3994;
+    -webkit-box-shadow: 0 4px 10px #5e3994;
+    -moz-box-shadow: 0 4px 10px #5e3994;
+    color: #fff;
+    position: relative;
+    padding: 5px !important;
+    min-height: 55px;
+    height: auto;
+    width: 80%;
+    margin: auto;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    border-radius: 3px;
+    z-index: 2;
+    overflow: hidden;
+}
+.purple-block .col-sm-3{
+    text-align: center;
+    padding: 7px;
+    border-radius: 3px;
+    margin: 0 5px;
+    border: solid 1px rgba(0, 0, 0, 0);
+}
+.purple-block .col-sm-3:hover{
+    border: solid 1px rgba(255, 255, 255, 0.4);
+    transition: 0.1s;
+}
+.purple-block .col-sm-3 i{
+    margin-right: 5px;
+    font-size: 20px;
+}
+.purple-block .md-col-active{
+    background: #8255c5;
+}
+.purple-block .md-col-active:hover{
+    border: solid 1px rgba(0, 0, 0, 0);
+}
+
+.white-block{
+    margin: auto;
+    border-radius: 7px;
+    text-align: justify;
+}
+
+.block-content .white-block{
+    padding: 10px 0;
+    padding-top: 45px;
+    top: -30px;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 3px 10px #0000005e;
+}
+.card{
+    height: auto !important;
+    /* background: #5e3994; */
+}
+#table-1{
+    display: inline-table;
+}
+#table-2{
+    display: none;
+}
+th{
+    text-align: center;
+}
+td{
+    text-align: center;
+    justify-content: center;
+    vertical-align: middle !important;
+}
+
+/* Progress Bar */
+
+.progress{
+    display: none;
+    line-height: initial !important;
+}
+
+.progress-bar{
+    background-color: #5e3994 !important;
+}
+.progress-bar-message{
+    display: none;
+    margin-bottom: 0.5rem !important;
+    text-align: center !important;
+    /* font-family: 'Abel', sans-serif; */
+}
+
+.btn-info{
+    display: none; 
+}
+
+/* How download section */
+
+.img-and-text{
+    /* background: #5e3994; */
+    width: 100%;
+    display: flex;
+    margin-bottom: 20px;
+}
+.img-and-text img{
+    width: 40%;
+}
+.img-and-text h2, h3{
+    font-weight: bolder;
+}
+.img-and-text h2, h3, h4, p, .text ol{
+    font-family: 'Abel', sans-serif;
+    font-size: 15pt;
+}
+.directory{
+    font-family: 'Abel', sans-serif;
+    font-weight: bolder;
+    font-size: 14pt;
+    color: #5e3994;
+}
+
+@media(max-width: 767px){
+    body{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .block-content{
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 0;
+    }
+    #Search{
+        width: 75% !important;
+    }
+    .block-all{
+        width: 100%;
+        display: block;
+    }
+    .card{
+        margin: auto;
+        margin-bottom: 10px;
+    }
+    .block-content{
+        clear: both;
+        float: none;
+    }
+
+
+    .img-and-text{
+        display: block;
+        padding: 10px;
+        margin-bottom: 0;
+    }
+    .img-and-text img{
+        width: 90%;
+        margin: auto;
+    }
+}
