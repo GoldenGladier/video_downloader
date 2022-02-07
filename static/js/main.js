@@ -86,8 +86,8 @@ check_progress = function (progressUrl, itag, animateBar) {
             $("#progress-bar-itag-" + itag).css('width', data.progress.percent + '%');
             
             if(data.progress.description){
-              // console.log('Remaing: ' + data.progress.description.time_remaining + '  Speed: ' + data.progress.description.speed_download + '\n');
-              $("#progress-message-" + itag).text(data.progress.percent + "% - " + data.progress.description.time_remaining + 'seg remaining - ' + data.progress.description.speed_download + ' kBps');  
+              // $("#progress-message-" + itag).text(data.progress.percent + "% - " + data.progress.description.time_remaining + 'seg remaining - ' + data.progress.description.speed_download + ' kBps');  
+              $("#progress-message-" + itag).text(data.progress.percent + "% - " + data.progress.description.time_remaining + 'seg remaining');  
             }  
             else{
               $("#progress-message-" + itag).text(data.progress.percent + "% ");  
